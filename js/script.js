@@ -82,7 +82,7 @@ function game(){
                         if(tableauResultat[i] == 0)
                         {
                             let xhr = new XMLHttpRequest;
-                            xhr.open("POST", "http://bigot.cefim.o2switch.site/test", true)
+                            xhr.open("POST", "http://lucanuscervus.pythonanywhere.com/test", true)
                             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
                             xhr.addEventListener("readystatechange", function(e){
                                 console.log(xhr.responseText);
@@ -130,7 +130,7 @@ function game(){
                         }
                         else
                         {
-                            console.log("case déjà colorié connard")
+                            console.log("case déjà colorié")
                         }
                         break;
                     }
@@ -144,7 +144,7 @@ function game(){
                         if(tableauResultat[i] == 0)
                         {
                             let xhr = new XMLHttpRequest;
-                            xhr.open("POST", "http://bigot.cefim.o2switch.site/test", true)
+                            xhr.open("POST", "http://lucanuscervus.pythonanywhere.com/test", true)
                             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
                             xhr.addEventListener("readystatechange", function(e){
                                 console.log(xhr.responseText);
@@ -200,7 +200,7 @@ function game(){
                         }
                         else
                         {
-                            console.log("case déjà colorié connard")
+                            console.log("case déjà colorié")
                         }
                         break;
                     }
@@ -211,11 +211,38 @@ function game(){
 
 setInterval((e) => {            
     let xhrr = new XMLHttpRequest;
-    xhrr.open("GET", "http://bigot.cefim.o2switch.site/list", true)
-    xhrr.addEventListener("readystatechange", function(e){
-        console.log(xhrr.responseText);
+    xhrr.open("GET", "http://lucanuscervus.pythonanywhere.com/list", true)
+    xhrr.addEventListener("load", function(e){
+        let tableau = JSON.parse(xhrr.responseText);
+        let tablo = tableau.messages
+        tablo.map(function(e){
+            let ctx = canvas.getContext("2d");
+            ctx.fillStyle = e.color
+            ctx.fillRect(e.resultX, e.resultY, 199, 199)
+        })
     });
-    xhrr.send()   
+    xhrr.send()  
 }, 3000);
+
+document.getElementById("rejouerGame").addEventListener("click", function(e){
+    let id = 0;
+    let ad = 0;
+    for(o = 0; o < 3; o++){
+        for(i = 0; i < 3; i++){
+            let ctx = canvas.getContext("2d");
+            ctx.fillStyle = "white";
+            ctx.fillRect(id, ad, 199, 199);
+            id = id + 199;
+        }
+        ad = ad + 199;
+        id = 0;
+    }
+    let xhrr = new XMLHttpRequest;
+    xhrr.open("POST", "http://lucanuscervus.pythonanywhere.com/rejouer", true)
+    xhrr.addEventListener("load", function(e){
+
+    });
+    xhrr.send()  
+});
 
 
