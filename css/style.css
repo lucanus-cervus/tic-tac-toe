@@ -2,12 +2,74 @@ body
 {
     margin: 0;
     padding: 0;
+    background-color: blueviolet;
+}
+header
+{
+    background-color: blueviolet;
+}
+h1
+{
+    margin: 0;
 }
 canvas
 {
     border: 1px black solid;
 }
+img
+{
+    max-height: 100%;
+    max-width: 100%;
+}
+#iconeVidePo
+{
+    display: flex;
+}
+#iconePleinePo
+{
+    display: none;
+}
+#iconeVidePt
+{
+    display: flex;
+}
+#iconePleinePt
+{
+    display: none;
+}
+section
+{
+    display: flex;
+}
+p
+{
+    padding: 0;
+    margin: 0;
+}
+ul
+{
+    list-style: none;
+    display: flex;
+}
+
+button
+{
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 25%;
+    border: 1px black solid;
+}
+button:hover
+{
+    background-color: blue;
+}
 #decompte
 {
     font-size: 30px;
+}
+footer
+{
+    margin: 0;
+    padding: 0;
+    background-color: blueviolet;
 }
