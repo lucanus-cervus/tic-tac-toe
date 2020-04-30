@@ -6,10 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <canvas id="grilleCa" width="600" height="600" ></canvas>
-    <button id="startGame">Lancer le jeu</button>
-    <button id="rejouerGame">Rejouer</button>
-    <article id="decompte"></article>
+    <section>
+        <canvas id="grilleCa" width="600" height="600" ></canvas>
+        <div>
+            <ul>
+                <li><button id="ready">Prêt</button></li>
+                <li><button id="rejouerGame">Rejouer</button></li>
+            </ul>
+            <p>Player One : </p>
+            <img id="iconeVidePo" src="img/valid-false.png"/>
+            <img id="iconePleinePo" src="img/valid-true.png"/>
+            <p>Player Two : </p>
+            <img id="iconeVidePt" src="img/valid-false.png"/>
+            <img id="iconePleinePt" src="img/valid-true.png"/>
+        </div>
+        <article id="regles"></article>
+    </section>
 <script src="js/script.js"></script>
 </body>
 </html>
